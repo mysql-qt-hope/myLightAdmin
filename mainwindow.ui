@@ -236,32 +236,6 @@
      <string notr="true"/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="ColumnCount">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>380</y>
-      <width>61</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>10</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="ColumnCountLabel">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>400</y>
-      <width>71</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Column Count</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -269,7 +243,7 @@
      <x>0</x>
      <y>0</y>
      <width>750</width>
-     <height>18</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

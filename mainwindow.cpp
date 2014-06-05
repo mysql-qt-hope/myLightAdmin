@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 
 
+#include <QMessageBox>
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -104,24 +107,34 @@ void MainWindow::on_pushButton_2_clicked()
 {
     QSqlQuery query;
     QString outHtml;
-    int ColumnCount = 10;
-    QString ColumnCountStr = ui->ColumnCount->text();
+    //int ColumnCount = 10;
+    //QString ColumnCountStr = ui->ColumnCount->text();
 
-    ColumnCount = ColumnCountStr.toInt();
+    //ColumnCount = ColumnCountStr.toInt();
     query.prepare(ui->SQLText->toPlainText());
     query.exec();
+    //query.record.count();
+
     outHtml.append("<center><table border=1>");
+
     while (query.next()){
         outHtml.append("<tr>");
-        for (int i = 0; i < ColumnCount; i++){
+
+        //for (int i = 0; i < ColumnCount; i++) {
+        int i = 0;
+        while (!query.value(i).isNull()) {
             QString val = query.value(i).toString();
             outHtml.append("<td>");
             outHtml.append(val);
             outHtml.append("</td>");
+
+            i++;
         }
+
         outHtml.append("</tr>");
     }
     outHtml.append("</table></center>");
+
     ui->textEdit->setHtml(outHtml);
     if (query.lastError().text().size() > 5){
         ui->textEdit->setHtml(query.lastError().text());
