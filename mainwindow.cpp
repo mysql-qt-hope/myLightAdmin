@@ -120,15 +120,11 @@ void MainWindow::on_pushButton_2_clicked()
     while (query.next()){
         outHtml.append("<tr>");
 
-        //for (int i = 0; i < ColumnCount; i++) {
-        int i = 0;
-        while (!query.value(i).isNull()) {
+        for (int i = 0; i < query.record().count(); i++) {
             QString val = query.value(i).toString();
             outHtml.append("<td>");
             outHtml.append(val);
             outHtml.append("</td>");
-
-            i++;
         }
 
         outHtml.append("</tr>");
